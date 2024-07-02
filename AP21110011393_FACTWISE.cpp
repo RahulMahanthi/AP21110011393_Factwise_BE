@@ -34,7 +34,7 @@ int func(vector<int>&cardPoints,int k,vector<vector<int>>&dp,int ind1,int ind2)
 		return dp[ind1][ind2];
 	}
 	
-	return dp[ind1][ind2]=max(cardPoints[ind1]+func(cardPoints,k-1,dp,ind1-1,ind2),cardPoints[ind2]+func(cardPoints,k-1,dp,ind1,ind2-1));
+	return dp[ind1][ind2]=max(cardPoints[ind1]+func(cardPoints,k-1,dp,ind1+1,ind2),cardPoints[ind2]+func(cardPoints,k-1,dp,ind1,ind2-1));
 }
 int main()
 {
@@ -50,7 +50,7 @@ int main()
 	}
 	cout<<"Enter the K value : "<<endl;
 	cin>>k;
-	vector<vector<int>dp(sizeofarray,vector<int>(sizeofarray,-1));
+	vector<vector<int>>dp(sizeofarray,vector<int>(sizeofarray,-1));
 	int i=0;
 	int j=sizeofarray-1;
     cout<<func(cardPoints,k,dp,i,j);
